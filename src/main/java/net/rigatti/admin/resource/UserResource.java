@@ -1,19 +1,26 @@
 package net.rigatti.admin.resource;
 
+import net.rigatti.admin.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.rigatti.admin.repository.UserRepository;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 @RestController
+@RequestMapping(path="/admin")
 public class UserResource {
-	@Autowired 
+
+	@PersistenceContext
+	private EntityManager entityManager;
+
+	@Autowired
 	private UserRepository userRepository;
-	
-	@RequestMapping(method = RequestMethod.GET, value="/user")
-	public String test() {
-		return userRepository.findByUsername("Michel").toString();
+
+	@GetMapping(path="/user")
+	public String user() {
+		return userRepository.findAll().toString();
 	}
 }
