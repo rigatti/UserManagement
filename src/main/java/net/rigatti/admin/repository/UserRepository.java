@@ -1,4 +1,4 @@
-package net.rigatti.admin;
+package net.rigatti.admin.repository;
 
 import net.rigatti.admin.model.Users;
 import org.springframework.data.repository.CrudRepository;

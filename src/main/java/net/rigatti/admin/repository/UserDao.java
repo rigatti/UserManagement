@@ -1,6 +1,5 @@
 package net.rigatti.admin.repository;
 
-import net.rigatti.admin.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserDao {
