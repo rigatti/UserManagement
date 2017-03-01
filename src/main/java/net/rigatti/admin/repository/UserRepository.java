@@ -8,5 +8,5 @@ import java.util.List;
 
 @Transactional
 public interface UserRepository extends CrudRepository<Users, Integer> {
-    List<Users> findByUsername(String username);
+    List<Users> findByName(String name);
 }

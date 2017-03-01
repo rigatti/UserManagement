@@ -11,14 +11,14 @@ public class Users {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
-    private String username;
+    private String name;
     private String password;
     private int enabled;
     
 	protected Users() {}
 
-    public Users(String username, String password, int enabled) {
-        this.username = username;
+    public Users(String name, String password, int enabled) {
+        this.name = name;
         this.password = password;
         this.enabled = enabled;    		
     }
@@ -26,24 +26,24 @@ public class Users {
 	@Override
     public String toString() {
         return String.format(
-                "User[id=%d, username='%s', enabled='%s']",
-                id, username, enabled);
+                "User[id=%d, name='%s', enabled='%s']",
+                id, name, enabled);
     }
 
 	public Integer getId() {
 		return id;
 	}
 
-    public void setUsername(String username) {
-		this.username = username;
+    public void setName(String name) {
+		this.name = name;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getName() {
+		return name;
 	}
 
 	public String getPassword() {
