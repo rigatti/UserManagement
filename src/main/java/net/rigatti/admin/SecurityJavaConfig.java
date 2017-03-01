@@ -46,8 +46,8 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
 
         auth.jdbcAuthentication().dataSource(dataSource)
                 .usersByUsernameQuery(
-                        "select name, password, enabled from access.users where name=?")
+                        "select name as username, password, enabled from access.users where name=?")
                 .authoritiesByUsernameQuery(
-                        "select access.roles.name from access.roles, access.users_roles, access.users where users.name=? and access.users.id=access.users_roles.user_id and access.roles.id=access.users_roles.role_id");
+                        "select access.users.name as username, access.roles.name as role from access.roles, access.users_roles, access.users where users.name=? and access.users.id=access.users_roles.user_id and access.roles.id=access.users_roles.role_id");
     }
 }
